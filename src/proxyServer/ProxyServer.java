@@ -12,7 +12,7 @@ public class ProxyServer extends Thread {
     int port = 8282;
     try { 
          serverSocket = new ServerSocket(port); 
-         System.out.println (port+ " Portundan baðlantý saðlandý");
+         System.out.println (port+ " Portundan baglanti saglandi");
          
          while (true){
                   new ProxyServer (serverSocket.accept()); 
@@ -20,7 +20,7 @@ public class ProxyServer extends Thread {
          } 
          
     catch (IOException e) { 
-         System.err.println(port+ " Portuna baðlantý baþarýsýz oldu."); 
+         System.err.println(port+ " Portuna baglanti basarisiz oldu."); 
          System.exit(1); 
         } 
     
@@ -43,7 +43,7 @@ public class ProxyServer extends Thread {
          String inputLine; 
          while ((inputLine = in.readLine()) != null) { 
               System.out.println (inputLine); 
-              out.println(inputLine); 
+              out.println(inputLine); // burdaki line'lari ekrana degil http request'e bas!
          }
 
          out.close(); 
@@ -51,7 +51,7 @@ public class ProxyServer extends Thread {
          client.close(); 
     } 
     catch (IOException e) { 
-         System.err.println("Baðlantýda bir sorun oluþtu. Dinleme baþarýsýz...");
+         System.err.println("Baglantida bir sorun olustu. Dinleme basarisiz...");
          System.exit(1); 
     } 
   }
